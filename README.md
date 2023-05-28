@@ -1,5 +1,5 @@
 # cse210-ww-student-template
-This is the starter code for students in the worldwide content version of CSE 210.
+We will be writing code in C# using the Visual Studio Code (VS Code) editor, and compiling with the .NET framework.
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
