@@ -13,7 +13,7 @@ class Program
         Console.WriteLine("Stady..");
         Console.WriteLine("Go.");
         while (guessed == false)
-        { 
+        {
             Console.WriteLine("What is your guess?");
             string guess = Console.ReadLine();
             int guessNum;
