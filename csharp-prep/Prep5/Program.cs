@@ -40,6 +40,7 @@ class Program
         static void DisplayResult(string name, int squaredNum){
             Console.WriteLine($"{name}, the square of your number is {squaredNum}");
         }
+        DisplayWelcome();
         string name = PromptUserName();
         int number = PromptUserNumber();
         int squaredNum = SquareNumber(number);
