@@ -8,9 +8,13 @@ class Program
         int number = randomGenerator.Next(1, 100);
         int guesses = 0;
         bool guessed = false;
+        Console.WriteLine("Wellcome to guessing game where you have to guess a number between 1-100.");
+        Console.WriteLine("Ready...");
+        Console.WriteLine("Stady..");
+        Console.WriteLine("Go.");
         while (guessed == false)
-        {
-            Console.WriteLine("What is your guess (1-100)?");
+        { 
+            Console.WriteLine("What is your guess?");
             string guess = Console.ReadLine();
             int guessNum;
             if (int.TryParse(guess, out guessNum))
