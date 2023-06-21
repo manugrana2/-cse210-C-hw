@@ -15,6 +15,7 @@ class Program
         job2._jobTitle = "Software Developer Trainee";
         job2._startYear = 2009;
         job2._endYear = 2010;
+        job2.Display();
         //Resume
         Resume resume = new Resume();
         resume._name = "Jonh Smith";
