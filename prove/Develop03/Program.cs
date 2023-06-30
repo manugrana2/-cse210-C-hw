@@ -1,6 +1,7 @@
 using System;
 /*
 This program helps you learn to memorize poems or passages of scripture
+Requirements exceeded by letting the user input its own scripture to learn.
 */
 class Program
 {
