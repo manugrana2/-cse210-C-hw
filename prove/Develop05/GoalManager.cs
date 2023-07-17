@@ -27,7 +27,8 @@ public class GoalManager
             Console.WriteLine("3. List goal details");
             Console.WriteLine("4. Create goal");
             Console.WriteLine("5. Record event");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Delete Goal");
+            Console.WriteLine("7. Exit");
             Console.Write("Enter choice: ");
             var choice = Console.ReadLine();
             switch (choice)
@@ -48,6 +49,10 @@ public class GoalManager
                     RecordEvent();
                     break;
                 case "6":
+                    DeleteGoal();
+                    Console.Clear();
+                    break;
+                case "7":
                     SaveGoalsToFile();
                     return;
                 default:
@@ -75,7 +80,7 @@ public class GoalManager
         int i = 1;
         foreach (var goal in _goals)
         {
-            Console.WriteLine(i+". " + goal.getShortName());
+            Console.WriteLine(i + ". " + goal.getShortName());
             i++;
         }
         Console.WriteLine("----------- END ----------- ");
@@ -94,6 +99,7 @@ public class GoalManager
         foreach (var goal in _goals)
         {
             Console.WriteLine(i.ToString() + ". " + goal.GetDetailsString());
+            i++;
         }
         Console.WriteLine("----------- END ----------- ");
     }
@@ -236,6 +242,51 @@ public class GoalManager
                     _goals.Add(goal);
                 }
             }
+        }
+    }
+
+    public void DeleteGoal()
+    {
+        if (_goals.Count < 1)
+        {
+            blinkText("There are any goals", true);
+            return;
+        }
+        ListGoalDetails();
+        Console.Write("\nType the number of the goal you want to delete: ");
+        int number;
+        if (!int.TryParse(Console.ReadLine(), out number))
+        {
+            blinkText("Invalid input, not a number", true);
+
+            return;
+        }
+        if (number - 1 < 0 || number - 1 > _goals.Count - 1)
+        {
+            blinkText("Goal not found", true);
+            return;
+        }
+        Console.Clear();
+        var goal = _goals[number - 1];
+        Console.WriteLine("Are you sure you want to delete " + goal.getShortName() + "?");
+        Console.WriteLine("1. Yes\n2. Cancel");
+        int confirmation;
+        Console.Write("Type an option: ");
+        if (!int.TryParse(Console.ReadLine(), out confirmation))
+        {
+            blinkText("Invalid input, not a number", true);
+
+            return;
+        }
+        switch (confirmation)
+        {
+            case 1:
+                blinkText("Goal deleted", true);
+                _goals.RemoveAt(number - 1);
+                break;
+            default:
+                blinkText("Goal not deleted", false);
+                return;
         }
     }
 
