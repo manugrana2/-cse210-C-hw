@@ -31,7 +31,7 @@ public class SimpleGoal : Goal
      public override string GetStringRepresentation()
     {
         // return a string that includes the type of the goal and all the necessary details
-        return $"SimpleGoal:{ShortName},{Description},{PointValue},{_timesCompleted},{_isComplete}";
+        return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
     }
 
     public static SimpleGoal CreateFromRepresentation(string representation)
@@ -41,8 +41,7 @@ public class SimpleGoal : Goal
 
         // create a new SimpleGoal object and set all the values
         SimpleGoal goal = new SimpleGoal(details[0], details[1], int.Parse(details[2]));
-        goal._timesCompleted = int.Parse(details[3]);
-        goal._isComplete = bool.Parse(details[4]);
+        goal._isComplete = bool.Parse(details[3]);
 
         // return the created goal
         return goal;

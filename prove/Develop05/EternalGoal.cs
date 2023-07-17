@@ -31,7 +31,7 @@ public class EternalGoal : Goal
       public override string GetStringRepresentation()
     {
         // return a string that includes the type of the goal and all the necessary details
-        return $"EternalGoal:{ShortName},{Description},{PointValue},{_timesCompleted}";
+        return $"EternalGoal:{_shortName},{_description},{_points},{_timesRecorded}";
     }
 
     public static EternalGoal CreateFromRepresentation(string representation)
@@ -41,7 +41,7 @@ public class EternalGoal : Goal
 
         // create a new EternalGoal object and set all the values
         EternalGoal goal = new EternalGoal(details[0], details[1], int.Parse(details[2]));
-        goal._timesCompleted = int.Parse(details[3]);
+        goal._timesRecorded = int.Parse(details[3]);
 
         // return the created goal
         return goal;

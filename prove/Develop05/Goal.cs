@@ -11,6 +11,10 @@ public abstract class Goal
         _points = points;
     }
 
+    public string getShortName(){
+        return _shortName;
+    }
+
     // Now RecordEvent returns the points associated with recording the event
     public abstract int RecordEvent();
     public abstract bool IsComplete();

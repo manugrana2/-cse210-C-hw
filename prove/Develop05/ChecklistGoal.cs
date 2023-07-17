@@ -36,14 +36,14 @@ public class ChecklistGoal : Goal
     }
         public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal:{_ShortName},{_Description},{_PointValue},{_timesCompleted},{_timesRequired},{_bonusForCompletion}";
+        return $"ChecklistGoal:{_shortName},{_description},{_points},{_target},{_bonus},{_amountCompleted}";
     }
 
     public static ChecklistGoal CreateFromRepresentation(string representation)
     {
         var details = representation.Split(',');
-        ChecklistGoal goal = new ChecklistGoal(details[0], details[1], int.Parse(details[2]), int.Parse(details[4]), int.Parse(details[5]));
-        goal._timesCompleted = int.Parse(details[3]);
+        ChecklistGoal goal = new ChecklistGoal(details[0], details[1], int.Parse(details[2]), int.Parse(details[3]), int.Parse(details[4]));
+        goal._amountCompleted = int.Parse(details[5]);
         return goal;
     }
 }
